@@ -1,0 +1,37 @@
+---
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/global.css';
+
+const services: [string, string, string][] = [
+  ['01', 'Desarrollo web y backend', 'Aplicaciones y servicios web, lógica empresarial, integración con bases de datos y mantenimiento.'],
+  ['02', 'Aplicaciones móviles', 'Desarrollo de aplicaciones Android y multiplataforma con Flutter, desde la estructura hasta las mejoras posteriores.'],
+  ['03', 'Automatización de procesos', 'Integración de herramientas, APIs y flujos automatizados con Python y n8n para reducir tareas repetitivas.'],
+  ['04', 'Integración de inteligencia artificial', 'Incorporación de capacidades de IA en flujos de trabajo y aplicaciones cuando existe una necesidad técnicamente justificable.'],
+  ['05', 'APIs e integración de sistemas', 'Diseño y consumo de APIs REST, sincronización de información y conexión entre plataformas.'],
+  ['06', 'Mantenimiento y optimización', 'Diagnóstico de errores, mejoras de funcionamiento, pruebas y documentación para software existente.'],
+];
+---
+
+<BaseLayout
+  title="Servicios de desarrollo y automatización — DiegoDebian"
+  description="Desarrollo web, aplicaciones móviles, APIs, automatización, inteligencia artificial y mantenimiento de software."
+>
+  <Header slot="header" />
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Servicios"
+        title="Trabajo técnico orientado a necesidades concretas."
+        description="Estas capacidades se pueden combinar según el problema: construir una aplicación, conectar sistemas, automatizar un proceso o mejorar una herramienta existente."
+      />
+      <div class="card-grid service-catalog">
+        {services.map(([number, title, description]) => <ServiceCard number={number} title={title} description={description} />)}
+      </div>
+    </div>
+  </section>
+  <Footer slot="footer" />
+</BaseLayout>

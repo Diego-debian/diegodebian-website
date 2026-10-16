@@ -1,0 +1,31 @@
+---
+interface Screenshot {
+  src: string;
+  alt: string;
+  label: string;
+}
+
+interface Props {
+  screenshots: Screenshot[];
+}
+
+const { screenshots } = Astro.props;
+---
+
+<div class="project-gallery" aria-label="Capturas de Nebula Sync" data-reveal>
+  {screenshots.map((screenshot) => (
+    <figure class="project-gallery-item">
+      <a href={screenshot.src} target="_blank" rel="noopener noreferrer">
+        <img
+          src={screenshot.src}
+          alt={screenshot.alt}
+          width="720"
+          height="1600"
+          loading="lazy"
+          decoding="async"
+        />
+      </a>
+      <figcaption>{screenshot.label}</figcaption>
+    </figure>
+  ))}
+</div>

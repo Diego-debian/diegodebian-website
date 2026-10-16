@@ -1,0 +1,40 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  description: string;
+}
+
+const { eyebrow, title, description } = Astro.props;
+---
+
+<section class="hero container" aria-labelledby="hero-title" data-reveal>
+  <div class="hero-copy">
+    <p class="eyebrow">{eyebrow}</p>
+    <h1 id="hero-title">{title}</h1>
+    <p class="hero-description">{description}</p>
+    <slot name="actions" />
+  </div>
+  <div class="hero-visual" aria-labelledby="hero-visual-title">
+    <svg viewBox="0 0 520 360" role="img">
+      <title id="hero-visual-title">Desarrollo, integración y automatización conectados</title>
+      <desc>Un sistema central conecta una aplicación, varias fuentes y un flujo automatizado.</desc>
+      <path class="hero-visual-line" d="M260 180 120 78M260 180l140-102M260 180v116" />
+      <circle class="hero-visual-node hero-visual-node-main" cx="260" cy="180" r="55" />
+      <circle class="hero-visual-node" cx="120" cy="78" r="34" />
+      <circle class="hero-visual-node" cx="400" cy="78" r="34" />
+      <circle class="hero-visual-node" cx="260" cy="296" r="34" />
+      <path class="hero-visual-glyph" d="M242 180h36M250 164l-14 16 14 16M270 164l14 16-14 16" />
+      <path class="hero-visual-glyph" d="M106 78l10-10 10 10-10 10 10 10M134 68l-10 10 10 10" />
+      <path class="hero-visual-glyph" d="M386 86c-7 0-12-5-12-11s5-11 12-11c3-8 15-10 20-2 8-2 14 4 14 11 0 7-5 13-13 13h-21Z" />
+      <circle class="hero-visual-glyph" cx="260" cy="296" r="10" />
+      <path class="hero-visual-glyph" d="M260 278v-7M260 321v-7M242 296h-7M285 296h-7M247 283l-5-5M278 314l-5-5M273 283l5-5M242 314l5-5" />
+      <text class="hero-visual-label" x="120" y="126" text-anchor="middle">DESARROLLO</text>
+      <text class="hero-visual-label" x="400" y="126" text-anchor="middle">APIs / INTEGRACIÓN</text>
+      <text class="hero-visual-label" x="260" y="344" text-anchor="middle">AUTOMATIZACIÓN</text>
+    </svg>
+    <div class="hero-visual-legend" aria-hidden="true">
+      <span>DESARROLLO</span><span>INTEGRACIÓN</span><span>AUTOMATIZACIÓN</span>
+    </div>
+  </div>
+</section>

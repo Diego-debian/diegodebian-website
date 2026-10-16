@@ -1,0 +1,62 @@
+---
+const links = [
+  { href: '/', label: 'Inicio' },
+  { href: '/servicios/', label: 'Servicios' },
+  { href: '/portafolio/', label: 'Portafolio' },
+  { href: '/sobre-mi/', label: 'Sobre mí' },
+  { href: '/contacto/', label: 'Contacto' },
+];
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/" aria-label="DiegoDebian, ir al inicio">
+      <span class="brand-mark" aria-hidden="true">D</span>
+      <span>DIEGO DEBIAN</span>
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="site-navigation"
+    >
+      <span class="menu-toggle-label">Menú</span>
+      <span class="menu-icon" aria-hidden="true"><span></span><span></span></span>
+    </button>
+
+    <nav id="site-navigation" class="site-nav" aria-label="Navegación principal">
+      <ul>
+        {links.map((link) => (
+          <li>
+            <a href={link.href} aria-current={currentPath === link.href ? 'page' : undefined}>
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    <a class="header-cta" href="/contacto/">Hablemos de tu proyecto <span aria-hidden="true">→</span></a>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const navigation = document.querySelector<HTMLElement>('#site-navigation');
+
+  if (toggle && navigation) {
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      navigation.classList.toggle('is-open', !open);
+    });
+
+    navigation.addEventListener('click', (event) => {
+      if ((event.target as HTMLElement).closest('a')) {
+        toggle.setAttribute('aria-expanded', 'false');
+        navigation.classList.remove('is-open');
+      }
+    });
+  }
+</script>

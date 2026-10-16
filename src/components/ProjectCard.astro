@@ -1,0 +1,29 @@
+---
+interface Props {
+  label: string;
+  title: string;
+  description: string;
+  technology: string;
+  features: string[];
+  href: string;
+}
+
+const { label, title, description, technology, features, href } = Astro.props;
+---
+
+<article class="project-card" data-reveal>
+  <div class="project-visual">
+    <img class="project-logo" src="/images/nebula-sync/nebula-sync-logo.png" alt="Logo auténtico de Nebula Sync" />
+    <span>{label}</span>
+  </div>
+  <div class="project-content">
+    <p class="eyebrow">Aplicación móvil</p>
+    <h3>{title}</h3>
+    <p>{description}</p>
+    <p class="project-technology"><strong>Tecnologías:</strong> {technology}</p>
+    <ul class="project-features">
+      {features.map((feature) => <li>{feature}</li>)}
+    </ul>
+    <a class="button button-secondary" href={href} rel="noopener noreferrer">Ver proyecto <span aria-hidden="true">↗</span></a>
+  </div>
+</article>

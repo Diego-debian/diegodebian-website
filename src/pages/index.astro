@@ -1,0 +1,98 @@
+---
+import ButtonLink from '../components/ButtonLink.astro';
+import ContactLink from '../components/ContactLink.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/global.css';
+
+const nebulaFeatures = ['Flutter', 'Dart', 'Android', 'Reproductor de audio', 'Radio online'];
+---
+
+<BaseLayout
+  title="DiegoDebian — desarrollo de software y automatización"
+  description="Desarrollo de software, integración de sistemas y automatización de procesos para profesionales y organizaciones."
+>
+  <Header slot="header" />
+  <Hero
+    eyebrow="Estudio tecnológico"
+    title="Desarrollo de software y automatización para problemas reales"
+    description="Creo aplicaciones, integraciones y soluciones digitales que convierten ideas en herramientas útiles, eficientes y sostenibles."
+  >
+    <div slot="actions" class="button-row">
+      <ButtonLink href="/contacto/" label="Hablemos de tu proyecto" />
+      <ButtonLink href="/portafolio/" label="Ver portafolio" variant="secondary" />
+    </div>
+  </Hero>
+
+  <section class="section section-muted" aria-label="Servicios">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Servicios"
+        title="Soluciones tecnológicas para impulsar tus ideas"
+        description="Desarrollo software, automatizo procesos e integro tecnologías para ayudarte a resolver problemas reales y alcanzar tus objetivos."
+      />
+      <div class="card-grid">
+        <ServiceCard number="01" title="Desarrollo web y backend" description="Aplicaciones web robustas, escalables y seguras, con arquitecturas modernas y bien implementadas." />
+        <ServiceCard number="02" title="Aplicaciones móviles" description="Apps nativas y multiplataforma con enfoque en rendimiento, experiencia de usuario y valor real." />
+        <ServiceCard number="03" title="Automatización de procesos" description="Soluciones que ahorran tiempo, reducen errores y mejoran la productividad de tu negocio." />
+        <ServiceCard number="04" title="Integración de APIs e IA" description="Conexión con servicios externos, procesamiento de datos e integración de inteligencia artificial." />
+        <ServiceCard number="05" title="Optimización y mantenimiento" description="Mejora de rendimiento, refactorización y soporte continuo para que tu software siga funcionando." />
+      </div>
+      <div class="catalog-link"><ButtonLink href="/servicios/" label="Ver catálogo completo de servicios" variant="text" /></div>
+    </div>
+  </section>
+
+  <section class="section" aria-label="Portafolio destacado">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Portafolio destacado"
+        title="Proyectos que generan impacto"
+        description="Una muestra de mi trabajo y del tipo de soluciones que puedo desarrollar."
+      />
+      <ProjectCard
+        label="NEBULA / SYNC"
+        title="Nebula Sync"
+        description="Aplicación Android desarrollada con Flutter y Dart para la reproducción de archivos MP3 y emisoras de radio por Internet."
+        technology="Flutter y Dart"
+        features={nebulaFeatures}
+        href="https://play.google.com/store/apps/details?id=com.diegodebian.nebulasync"
+      />
+    </div>
+  </section>
+
+  <section class="section section-muted" aria-label="Sobre mí">
+    <div class="container about-grid">
+      <div class="about-copy">
+        <p class="eyebrow">Sobre mí</p>
+        <h2>En la intersección entre software, análisis, Física y Educación.</h2>
+        <p>Soy Diego Debian, un desarrollador de software con formación en Física y Educación. Me interesa construir herramientas que no solo funcionen, sino que también aporten valor real en la vida de las personas.</p>
+      </div>
+      <div class="about-aside">
+        <p class="eyebrow">Una forma de trabajar</p>
+        <ul class="about-points">
+          <li><strong>Desarrollo de software</strong><span>Transformo ideas en aplicaciones funcionales y bien diseñadas.</span></li>
+          <li><strong>Pensamiento analítico</strong><span>Aplico un enfoque lógico y riguroso a cada problema.</span></li>
+          <li><strong>Física y Educación</strong><span>Explico soluciones y observo cómo las personas usan una herramienta.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-label="Contacto">
+    <div class="container contact-panel contact-band">
+      <div>
+        <p class="eyebrow">Contacto</p>
+        <h2>¿Tienes un proyecto en mente?</h2>
+        <p>Hablemos. Me interesa conocer tu idea y ver cómo podemos convertirla en una solución real.</p>
+      </div>
+      <ContactLink label="Escríbeme a" detail="diegodebian.online@gmail.com" href="mailto:diegodebian.online@gmail.com" />
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>

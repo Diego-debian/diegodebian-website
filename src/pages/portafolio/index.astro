@@ -1,0 +1,69 @@
+---
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/global.css';
+
+const nebulaFeatures = [
+  'Reproducción de archivos MP3.',
+  'Emisoras de radio por Internet.',
+  'Interfaz de reproducción móvil.',
+];
+
+const nebulaScreenshots = [
+  {
+    src: '/images/nebula-sync/nebula-sync-home.jpeg',
+    alt: 'Pantalla principal de Nebula Sync con mezcla diaria, Nebula Radio y controles de reproducción.',
+    label: 'Inicio',
+  },
+  {
+    src: '/images/nebula-sync/nebula-sync-player.jpeg',
+    alt: 'Reproductor de Nebula Sync mostrando una emisora, la forma de onda y los controles de audio.',
+    label: 'Reproductor',
+  },
+  {
+    src: '/images/nebula-sync/nebula-sync-library.jpeg',
+    alt: 'Biblioteca de Nebula Sync con una lista de pistas de audio y sus duraciones.',
+    label: 'Biblioteca',
+  },
+  {
+    src: '/images/nebula-sync/nebula-sync-radio.jpeg',
+    alt: 'Vista de Nebula Radio con sintonía, filtros por región y género y botón para aplicar filtros.',
+    label: 'Radio',
+  },
+];
+
+// Las capturas se conservan en public/images/nebula-sync, pero no se muestran en la interfaz pública.
+void nebulaScreenshots;
+---
+
+<BaseLayout
+  title="Portafolio — DiegoDebian"
+  description="Nebula Sync, aplicación Android desarrollada con Flutter y Dart por DiegoDebian."
+>
+  <Header slot="header" />
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Portafolio"
+        title="Un proyecto publicado y una historia que se puede comprobar."
+        description="El portafolio presenta un proyecto móvil y explica qué se construyó y dónde puede consultarse."
+      />
+      <ProjectCard
+        label="NEBULA / SYNC"
+        title="Nebula Sync"
+        description="Aplicación Android desarrollada con Flutter y Dart para reproducir archivos MP3 y emisoras de radio por Internet."
+        technology="Flutter y Dart"
+        features={nebulaFeatures}
+        href="https://play.google.com/store/apps/details?id=com.diegodebian.nebulasync"
+      />
+      <div class="note-panel" style="margin-top: 1rem;">
+        <p class="eyebrow">Sobre Nebula Sync</p>
+        <p>Una aplicación Android desarrollada con Flutter y Dart para escuchar archivos MP3 y emisoras de radio por Internet desde el móvil.</p>
+      </div>
+    </div>
+  </section>
+  <Footer slot="footer" />
+</BaseLayout>

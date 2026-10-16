@@ -1,0 +1,39 @@
+---
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/global.css';
+---
+
+<BaseLayout
+  title="Sobre mí — DiegoDebian"
+  description="Conoce el enfoque profesional de Diego Debian, desarrollador de software con formación en Física y Educación."
+>
+  <Header slot="header" />
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Sobre mí"
+        title="Software con pensamiento analítico y capacidad para explicar."
+        description="Soy Diego Debian, desarrollador de software con formación en Física y Educación."
+      />
+      <div class="about-grid">
+        <div class="contact-panel about-copy" data-reveal>
+          <p>Mi trabajo combina desarrollo de software con una formación que me ayuda a observar los problemas desde distintos ángulos. La Física aporta análisis y modelación; la Educación aporta comunicación, estructura y atención a la forma en que otras personas usan una herramienta.</p>
+          <p>En la práctica, esta combinación sirve para entender una necesidad, separar sus partes, construir una solución y documentarla para que pueda mantenerse. Me interesa desarrollar aplicaciones, integrar sistemas y automatizar procesos sin perder de vista que el resultado debe ser comprensible para quienes lo utilizan.</p>
+        </div>
+        <aside class="about-aside" data-reveal>
+          <p class="eyebrow">Tres formas de mirar</p>
+          <ul class="about-points">
+            <li><strong>Analizar</strong><span>Separar el problema y modelar sus partes.</span></li>
+            <li><strong>Explicar</strong><span>Comunicar con estructura y atención al uso real.</span></li>
+            <li><strong>Documentar</strong><span>Construir soluciones que puedan mantenerse.</span></li>
+          </ul>
+          <p class="about-note">Me interesa construir herramientas claras, mantenibles y útiles para las personas que las utilizan.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+  <Footer slot="footer" />
+</BaseLayout>

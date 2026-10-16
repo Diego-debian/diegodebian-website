@@ -1,0 +1,39 @@
+---
+import ContactLink from '../../components/ContactLink.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/global.css';
+---
+
+<BaseLayout
+  title="Contacto — DiegoDebian"
+  description="Información para conversar sobre un proyecto de desarrollo de software, integración o automatización."
+>
+  <Header slot="header" />
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Contacto"
+        title="Cuéntame qué problema quieres resolver."
+        description="Si estás evaluando una aplicación, una integración o una automatización, una buena conversación comienza por entender el contexto, las restricciones y el resultado que necesitas."
+      />
+      <div class="contact-grid">
+        <div class="contact-panel" data-reveal>
+          <p class="eyebrow">Correo comercial</p>
+          <ContactLink
+            label="Hablemos de tu proyecto"
+            detail="diegodebian.online@gmail.com"
+            href="mailto:diegodebian.online@gmail.com"
+          />
+        </div>
+        <div class="contact-panel contact-invite" data-reveal>
+          <p class="eyebrow">Una conversación útil</p>
+          <p>Para presentar un proyecto, puedes reunir el objetivo, el estado actual, las herramientas involucradas y el tipo de ayuda que buscas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <Footer slot="footer" />
+</BaseLayout>
