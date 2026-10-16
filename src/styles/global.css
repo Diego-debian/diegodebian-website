@@ -653,10 +653,24 @@ h1 { max-width: 12ch; font-size: clamp(2.8rem, 5.8vw, 5.25rem); text-wrap: balan
 @media (max-width: 48rem) {
   .container { width: min(calc(100% - 2rem), 76rem); }
   .header-inner { position: relative; }
-  .menu-toggle { display: inline-flex; margin-left: auto; }
+  .menu-toggle { display: inline-flex; min-height: 2.75rem; margin-left: auto; }
   .header-cta { display: none; }
-  .site-nav { top: calc(100% - 0.5rem); right: 0; left: 0; border-color: var(--color-line); background: var(--color-surface); }
-  .site-nav a { color: var(--color-ink-soft); }
+  .site-nav {
+    top: calc(100% - 0.5rem);
+    right: 0;
+    left: 0;
+    z-index: 30;
+    border-color: var(--color-line);
+    background: rgb(3 12 24 / 98%);
+    box-shadow: 0 1rem 2rem rgb(0 0 0 / 35%);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .site-nav a {
+    min-height: 2.75rem;
+    align-items: center;
+    color: var(--color-ink-soft);
+  }
   .hero { grid-template-columns: 1fr; min-height: auto; padding-block: 4rem; }
   .hero-visual { min-height: 22rem; }
   .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }

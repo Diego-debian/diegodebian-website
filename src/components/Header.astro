@@ -46,6 +46,11 @@ const currentPath = Astro.url.pathname;
   const navigation = document.querySelector<HTMLElement>('#site-navigation');
 
   if (toggle && navigation) {
+    const closeMenu = () => {
+      toggle.setAttribute('aria-expanded', 'false');
+      navigation.classList.remove('is-open');
+    };
+
     toggle.addEventListener('click', () => {
       const open = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', String(!open));
@@ -54,8 +59,14 @@ const currentPath = Astro.url.pathname;
 
     navigation.addEventListener('click', (event) => {
       if ((event.target as HTMLElement).closest('a')) {
-        toggle.setAttribute('aria-expanded', 'false');
-        navigation.classList.remove('is-open');
+        closeMenu();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        closeMenu();
+        toggle.focus();
       }
     });
   }
